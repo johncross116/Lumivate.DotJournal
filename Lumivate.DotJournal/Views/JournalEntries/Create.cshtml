@@ -1,5 +1,5 @@
 @* TODO-dotjournal step 5: Add the @model directive for JournalEntry *@
-@* @model Lumivate.DotJournal.Models.JournalEntry *@
+@model Lumivate.DotJournal.Models.JournalEntry
 
 @{
     ViewData["Title"] = "New Journal Entry";
@@ -8,12 +8,11 @@
 <h1>New Journal Entry</h1>
 
 @* TODO-dotjournal step 5: Uncomment the form below and fill in the Razor Tag Helpers where marked with TODO (inside HTML comments). *@
-@*
 <form asp-action="Create" method="post">
     <div class="mb-3">
-        <!-- TODO-dotjournal step 5: Add a label and input for Title -->
-        <!-- <label asp-for="Title" class="form-label"></label> -->
-        <!-- <input asp-for="Title" class="form-control" /> -->
+        @* TODO-dotjournal step 5: Add a label and input for Title *@
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control" />
     </div>
     <div class="mb-3">
         <label asp-for="Content" class="form-label"></label>
@@ -32,8 +31,8 @@
             <option value="Grateful">Grateful</option>
         </select>
     </div>
-    <!-- TODO-dotjournal step 5: Add a submit button with class "btn btn-primary" -->
+    @* TODO-dotjournal step 5: Add a submit button with class "btn btn-primary" *@
+    <button type="submit" class="btn btn-primary">Create</button>
 </form>
-*@
 
 <a asp-action="Index" class="btn btn-secondary mt-2">Back to Journal</a>

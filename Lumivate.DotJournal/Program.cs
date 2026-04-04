@@ -25,6 +25,7 @@ namespace Lumivate.DotJournal
 
 			// TODO-dotjournal step 3: Register the JournalEntryService for dependency injection
 			// builder.Services.AddScoped<IJournalEntryService, JournalEntryService>();
+			builder.Services.AddScoped<IJournalEntryService, JournalEntryService>();
 
 			var app = builder.Build();
 

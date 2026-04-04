@@ -18,5 +18,7 @@ namespace Lumivate.DotJournal.Data
 		// (Tools > NuGet Package Manager > Package Manager Console):
 		//   Add-Migration AddUserIdToJournalEntry
 		//   Update-Database
+
+		public DbSet<JournalEntry> JournalEntries { get; set; }
 	}
 }

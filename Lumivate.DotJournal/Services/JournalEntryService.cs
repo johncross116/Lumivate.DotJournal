@@ -25,5 +25,59 @@ namespace Lumivate.DotJournal.Services
         //   - GetEntryByIdAsync(int id, string userId): filter by both id AND userId
         //   - UpdateEntryAsync(JournalEntry entry, string userId): verify UserId matches before saving
         //   - DeleteEntryAsync(int id, string userId): verify UserId matches before deleting
+
+        private readonly ApplicationDbContext _context;
+
+        public JournalEntryService(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<IEnumerable<JournalEntry>> GetAllEntriesAsync(string userId)
+        {
+            return await _context.JournalEntries
+                .Where(e => e.UserId == userId)
+                .OrderByDescending(e => e.CreatedAt)
+                .ToListAsync();
+        }
+
+        public async Task<JournalEntry?> GetEntryByIdAsync(int id, string userId)
+        {
+            return await _context.JournalEntries
+                .FirstOrDefaultAsync(e => e.Id == id && e.UserId == userId);
+        }
+
+        public async Task AddEntryAsync(JournalEntry entry)
+        {
+            entry.CreatedAt = DateTime.Now;
+            _context.JournalEntries.Add(entry);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task UpdateEntryAsync(JournalEntry entry, string userId)
+        {
+            var existing = await _context.JournalEntries
+                .FirstOrDefaultAsync(e => e.Id == entry.Id && e.UserId == userId);
+
+            if (existing != null)
+            {
+                existing.Title = entry.Title;
+                existing.Content = entry.Content;
+                existing.Mood = entry.Mood;
+                await _context.SaveChangesAsync();
+            }
+        }
+
+        public async Task DeleteEntryAsync(int id, string userId)
+        {
+            var entry = await _context.JournalEntries
+                .FirstOrDefaultAsync(e => e.Id == id && e.UserId == userId);
+
+            if (entry != null)
+            {
+                _context.JournalEntries.Remove(entry);
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }

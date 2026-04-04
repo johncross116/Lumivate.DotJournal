@@ -1,5 +1,5 @@
 @* TODO-dotjournal step 5: Add the @model directive for a list of JournalEntry *@
-@* @model IEnumerable<Lumivate.DotJournal.Models.JournalEntry> *@
+@model IEnumerable<Lumivate.DotJournal.Models.JournalEntry>
 
 @{
     ViewData["Title"] = "My Journal";
@@ -9,42 +9,47 @@
 
 <p>
     @* TODO-dotjournal step 5: Add a link to the Create page *@
-    @* <a asp-action="Create" class="btn btn-primary">New Entry</a> *@
+    <a asp-action="Create" class="btn btn-primary">New Entry</a>
 </p>
 
 @* TODO-dotjournal step 5: Uncomment the block below to display journal entries. *@
 @* Fill in the Razor expressions where marked with TODO (inside HTML comments). *@
-@*
-    @if (!Model.Any())
+@if (!Model.Any())
+{
+    <p class="text-muted">No journal entries yet. Click "New Entry" to get started!</p>
+}
+else
+{
+    @foreach (var entry in Model)
     {
-        <p class="text-muted">No journal entries yet. Click "New Entry" to get started!</p>
-    }
-    else
-    {
-        @foreach (var entry in Model)
-        {
-            <div class="card mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">
-                        <!-- TODO-dotjournal step 5: Display the entry's Title here using @entry.Title -->
-                    </h5>
-                    <p class="card-text text-muted">
-                        <!-- TODO-dotjournal step 5: Display the Mood here (if it exists) -->
-                        <!-- Hint: use @if (!string.IsNullOrEmpty(entry.Mood)) to check -->
-                    </p>
-                    <p class="card-text">
-                        <!-- TODO-dotjournal step 5: Display a preview of the Content (first 100 characters) -->
-                        <!-- Hint: @entry.Content.Substring(0, Math.Min(100, entry.Content.Length))... -->
-                    </p>
-                    <p class="card-text"><small class="text-muted">
-                        <!-- TODO-dotjournal step 5: Display the CreatedAt date -->
-                        <!-- Hint: @entry.CreatedAt.ToString("MMMM dd, yyyy h:mm tt") -->
-                    </small></p>
-                    <a asp-action="Details" asp-route-id="@entry.Id" class="btn btn-info btn-sm">Read</a>
-                    <a asp-action="Edit" asp-route-id="@entry.Id" class="btn btn-warning btn-sm">Edit</a>
-                    <a asp-action="Delete" asp-route-id="@entry.Id" class="btn btn-danger btn-sm">Delete</a>
-                </div>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">
+                    @* TODO-dotjournal step 5: Display the entry's Title here using @entry.Title *@
+                    @entry.Title
+                </h5>
+                <p class="card-text text-muted">
+                    @* TODO-dotjournal step 5: Display the Mood here (if it exists) *@
+                    @* Hint: use @if (!string.IsNullOrEmpty(entry.Mood)) to check *@
+                    @if (!string.IsNullOrEmpty(entry.Mood))
+                    {
+                        @entry.Mood
+                    }
+                </p>
+                <p class="card-text">
+                    @* TODO-dotjournal step 5: Display a preview of the Content (first 100 characters) *@
+                    @* Hint: @entry.Content.Substring(0, Math.Min(100, entry.Content.Length))... *@
+                    @entry.Content.Substring(0, Math.Min(100, entry.Content.Length))...
+                </p>
+                <p class="card-text"><small class="text-muted">
+                    @* TODO-dotjournal step 5: Display the CreatedAt date *@
+                    @* Hint: @entry.CreatedAt.ToString("MMMM dd, yyyy h:mm tt") *@
+                    @entry.CreatedAt.ToString("MMMM dd, yyyy h:mm tt")
+                </small></p>
+                <a asp-action="Details" asp-route-id="@entry.Id" class="btn btn-info btn-sm">Read</a>
+                <a asp-action="Edit" asp-route-id="@entry.Id" class="btn btn-warning btn-sm">Edit</a>
+                <a asp-action="Delete" asp-route-id="@entry.Id" class="btn btn-danger btn-sm">Delete</a>
             </div>
-        }
+        </div>
     }
-*@
+}

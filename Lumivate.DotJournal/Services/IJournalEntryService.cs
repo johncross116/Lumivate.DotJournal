@@ -17,5 +17,11 @@ namespace Lumivate.DotJournal.Services
         //   - AddEntryAsync(JournalEntry entry) - entry.UserId should already be set by the controller
         //   - UpdateEntryAsync(JournalEntry entry, string userId) - verify ownership before updating
         //   - DeleteEntryAsync(int id, string userId) - verify ownership before deleting
+
+        Task<IEnumerable<JournalEntry>> GetAllEntriesAsync(string userId);
+        Task<JournalEntry?> GetEntryByIdAsync(int id, string userId);
+        Task AddEntryAsync(JournalEntry entry);
+        Task UpdateEntryAsync(JournalEntry entry, string userId);
+        Task DeleteEntryAsync(int id, string userId);
     }
 }
