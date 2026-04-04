@@ -5,19 +5,19 @@
     ViewData["Title"] = "Journal Entry";
 }
 
-@* TODO-dotjournal step 5: Uncomment the block below to display the full journal entry. Fill in the Razor expressions where marked with TODO (inside HTML comments). *@
+@* TODO-dotjournal step 5: Uncomment the block below to display the full journal entry. Fill in the Razor expressions where marked with TODO. *@
 @*
 <h1>@Model.Title</h1>
 
 @if (!string.IsNullOrEmpty(Model.Mood))
 {
     <span class="badge bg-info text-dark mb-3">
-        <!-- TODO-dotjournal step 5: Display the Mood -->
+        @* TODO-dotjournal step 5: Display the Mood *@
     </span>
 }
 
 <p class="text-muted">
-    <!-- TODO-dotjournal step 5: Display the date: @Model.CreatedAt.ToString("MMMM dd, yyyy h:mm tt") -->
+    @* TODO-dotjournal step 5: Display the date: @Model.CreatedAt.ToString("MMMM dd, yyyy h:mm tt") *@
 </p>
 
 <div class="card">
