@@ -52,3 +52,10 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+/Lumivate.TurtleStore/.vs
+/Lumivate.TrackStack/.vs/Lumivate.TrackStack.slnx
+/Lumivate.DotJournal/.vs/Lumivate.DotJournal.slnx
+/Lumivate.DotJournal/.vs
+/Lumivate.TrackStack/.vs/ProjectEvaluation
+/.vs/Lumivate.DotJournal.slnx

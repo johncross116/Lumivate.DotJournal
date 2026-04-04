@@ -1,0 +1,32 @@
+@{
+    ViewData["Title"] = "Home";
+}
+
+@* TODO-dotjournal step 6: Update the homepage to welcome users to DotJournal *@
+<div class="journal-hero">
+    <h1>Welcome to DotJournal</h1>
+    <hr class="accent-rule" />
+    <p>Your personal journal, powered by ASP.NET Core.</p>
+    <p>
+        @* TODO-dotjournal step 6: Add a link to the journal entries page *@
+        @* <a asp-controller="JournalEntries" asp-action="Index" class="btn btn-primary btn-lg">Open My Journal</a> *@
+    </p>
+</div>
+
+<div class="row feature-row">
+    <div class="col-md-4 feature-item">
+        <div class="feature-icon feature-icon-write">W</div>
+        <h5>Write Freely</h5>
+        <p>Capture your thoughts, ideas, and reflections in a distraction-free space.</p>
+    </div>
+    <div class="col-md-4 feature-item">
+        <div class="feature-icon feature-icon-mood">M</div>
+        <h5>Track Your Mood</h5>
+        <p>Tag each entry with how you're feeling to spot patterns over time.</p>
+    </div>
+    <div class="col-md-4 feature-item">
+        <div class="feature-icon feature-icon-safe">S</div>
+        <h5>Private &amp; Secure</h5>
+        <p>Your journal stays yours. Built on ASP.NET Core Identity.</p>
+    </div>
+</div>

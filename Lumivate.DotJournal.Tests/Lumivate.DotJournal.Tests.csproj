@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <!-- TODO-dotjournal step 8: These packages are needed for xUnit testing -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.0" />
+    <PackageReference Include="xunit" Version="2.9.3" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="3.1.0" />
+    <!-- EF Core InMemory is used to create a fake database for testing -->
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="10.0.5" />
+  </ItemGroup>
+
+  <!-- TODO-dotjournal step 8: Add a project reference to the main DotJournal project -->
+  <ItemGroup>
+    <ProjectReference Include="..\Lumivate.DotJournal\Lumivate.DotJournal.csproj" />
+  </ItemGroup>
+
+</Project>

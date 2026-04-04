@@ -1,0 +1,210 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #c9956b;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: #2d3436;
+  background-color: #fafaf8;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+
+/* ===== DotJournal — Polished Styles ===== */
+
+/* Hero section */
+.journal-hero {
+  background: linear-gradient(135deg, #2d3436 0%, #3d4f5f 60%, #4a6572 100%);
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 3.5rem 2rem 3rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.journal-hero h1 {
+  font-weight: 300;
+  font-size: 2.4rem;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.journal-hero p {
+  font-size: 1.1rem;
+  opacity: 0.85;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.journal-hero .btn {
+  margin-top: 1.25rem;
+}
+
+/* Feature row on home page */
+.feature-row {
+  margin-top: 2.5rem;
+}
+
+.feature-item {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #fff;
+}
+
+.feature-icon-write { background-color: #c9956b; }
+.feature-icon-mood  { background-color: #4a6572; }
+.feature-icon-safe  { background-color: #6b8f71; }
+
+.feature-item h5 {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  color: #2d3436;
+}
+
+.feature-item p {
+  font-size: 0.9rem;
+  color: #636e72;
+  margin-bottom: 0;
+}
+
+/* Headings */
+h1 {
+  font-weight: 600;
+  color: #2d3436;
+  letter-spacing: -0.01em;
+}
+
+/* Cards */
+.card {
+  border: 1px solid #e8e6e1;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.card-title {
+  font-weight: 600;
+  color: #2d3436;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: #c9956b;
+  border-color: #c9956b;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #b07d55;
+  border-color: #b07d55;
+  color: #fff;
+}
+
+.btn-info {
+  background-color: #4a6572;
+  border-color: #4a6572;
+  color: #fff;
+}
+
+.btn-info:hover {
+  background-color: #3d4f5f;
+  border-color: #3d4f5f;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #636e72;
+  border-color: #636e72;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #4a5459;
+  border-color: #4a5459;
+}
+
+/* Forms */
+.form-control:focus,
+.form-select:focus {
+  border-color: #c9956b;
+  box-shadow: 0 0 0 0.2rem rgba(201, 149, 107, 0.25);
+}
+
+textarea.form-control {
+  line-height: 1.7;
+}
+
+/* Badge for moods */
+.badge.bg-info {
+  background-color: #4a6572 !important;
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+/* Alerts */
+.alert-danger {
+  border-radius: 0.5rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #f5f4f0;
+  color: #636e72;
+  font-size: 0.875rem;
+}
+
+.footer a {
+  color: #4a6572;
+}
+
+/* Divider accent */
+.accent-rule {
+  width: 40px;
+  height: 3px;
+  background-color: #c9956b;
+  border: none;
+  margin: 1rem auto;
+  border-radius: 2px;
+}
