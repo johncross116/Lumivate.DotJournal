@@ -7,17 +7,17 @@
 
 <h1>Edit Journal Entry</h1>
 
-@* TODO-dotjournal step 5: Uncomment the edit form below and fill in the Razor parts where marked with TODO. *@
+@* TODO-dotjournal step 5: Uncomment the edit form below and fill in the Razor parts where marked with TODO (inside HTML comments). *@
 @*
 <form asp-action="Edit" method="post">
     <input type="hidden" asp-for="Id" />
     <input type="hidden" asp-for="CreatedAt" />
-    @* TODO-dotjournal step 7: Add a hidden field for UserId when auth is added *@
-    @* <input type="hidden" asp-for="UserId" /> *@
+    <!-- TODO-dotjournal step 7: Add a hidden field for UserId when auth is added -->
+    <!-- <input type="hidden" asp-for="UserId" /> -->
     <div class="mb-3">
-        @* TODO-dotjournal step 5: Add a label and input for Title *@
-        @* <label asp-for="Title" class="form-label"></label> *@
-        @* <input asp-for="Title" class="form-control" /> *@
+        <!-- TODO-dotjournal step 5: Add a label and input for Title -->
+        <!-- <label asp-for="Title" class="form-label"></label> -->
+        <!-- <input asp-for="Title" class="form-control" /> -->
     </div>
     <div class="mb-3">
         <label asp-for="Content" class="form-label"></label>
@@ -36,7 +36,7 @@
             <option value="Grateful">Grateful</option>
         </select>
     </div>
-    @* TODO-dotjournal step 5: Add a submit button with text "Save Changes" *@
+    <!-- TODO-dotjournal step 5: Add a submit button with text "Save Changes" -->
 </form>
 *@
 
