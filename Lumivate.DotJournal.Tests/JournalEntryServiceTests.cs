@@ -36,7 +36,7 @@ namespace Lumivate.DotJournal.Tests
             // Arrange
             var context = GetInMemoryContext();
             var service = new JournalEntryService(context);
-            var entry = new JournalEntry { Title = "Test Entry", Content = "Hello World", Mood = "Happy" };
+            var entry = new JournalEntry { Title = "Test Entry", Content = "Hello World", Mood = "Happy", UserId = "user1" };
 
             // Act
             await service.AddEntryAsync(entry);
