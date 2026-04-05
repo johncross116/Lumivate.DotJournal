@@ -11,6 +11,10 @@ namespace Lumivate.DotJournal.Data
 		//
 		// Then run the migration commands in the Package Manager Console
 		// (Tools > NuGet Package Manager > Package Manager Console):
+		//
+		// IMPORTANT: Make sure the "Default project" dropdown in the Package Manager Console
+		//   is set to "Lumivate.DotJournal" (not the Tests project).
+		//
 		//   Add-Migration AddJournalEntries
 		//   Update-Database
 		//
