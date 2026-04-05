@@ -1,5 +1,5 @@
 <Solution>
   <Project Path="Lumivate.DotJournal/Lumivate.DotJournal.csproj" />
-  <!-- TODO-dotjournal step 8: Add the test project to the solution -->
-  <!-- <Project Path="Lumivate.DotJournal.Tests/Lumivate.DotJournal.Tests.csproj" /> -->
+  <!-- TODO-dotjournal step 8: The test project has been added to the solution -->
+  <Project Path="Lumivate.DotJournal.Tests/Lumivate.DotJournal.Tests.csproj" />
 </Solution>
