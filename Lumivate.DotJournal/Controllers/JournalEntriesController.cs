@@ -9,6 +9,7 @@ namespace Lumivate.DotJournal.Controllers
     // TODO-dotjournal step 7: Add the [Authorize] attribute to the entire controller
     //   This ensures only logged-in users can access journal entries.
     //   [Authorize]
+    [Authorize]
     public class JournalEntriesController : Controller
     {
         // TODO-dotjournal step 4: Set up the controller
@@ -50,5 +51,86 @@ namespace Lumivate.DotJournal.Controllers
         //   var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
         //   Pass userId to the service methods so entries are scoped to the logged-in user.
         //   When creating a new entry, set entry.UserId = userId before saving.
+
+        private readonly IJournalEntryService _journalEntryService;
+
+        public JournalEntriesController(IJournalEntryService journalEntryService)
+        {
+            _journalEntryService = journalEntryService;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Index()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)!;
+            return View(await _journalEntryService.GetAllEntriesAsync(userId));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Details(int id)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)!;
+            var entry = await _journalEntryService.GetEntryByIdAsync(id, userId);
+            if (entry == null)
+            {
+                return NotFound();
+            }
+            return View(entry);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(JournalEntry entry)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)!;
+            entry.UserId = userId;
+            await _journalEntryService.AddEntryAsync(entry);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int id)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)!;
+            var entry = await _journalEntryService.GetEntryByIdAsync(id, userId);
+            if (entry == null)
+            {
+                return NotFound();
+            }
+            return View(entry);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, JournalEntry entry)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)!;
+            await _journalEntryService.UpdateEntryAsync(entry, userId);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)!;
+            var entry = await _journalEntryService.GetEntryByIdAsync(id, userId);
+            if (entry == null)
+            {
+                return NotFound();
+            }
+            return View(entry);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier)!;
+            await _journalEntryService.DeleteEntryAsync(id, userId);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }

@@ -14,5 +14,20 @@ namespace Lumivate.DotJournal.Models
         // TODO-dotjournal step 7: Add a UserId property (string) to associate entries with a user
         //   - This will be a foreign key to the Identity user table
         //   - Add [Required] to UserId
+
+        public int Id { get; set; }
+
+        [Required]
+        public string Title { get; set; } = string.Empty;
+
+        [Required]
+        public string Content { get; set; } = string.Empty;
+
+        public string? Mood { get; set; }
+
+        public DateTime CreatedAt { get; set; }
+
+        [Required]
+        public string UserId { get; set; } = string.Empty;
     }
 }

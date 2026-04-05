@@ -1,5 +1,5 @@
 @* TODO-dotjournal step 5: Add the @model directive for JournalEntry *@
-@* @model Lumivate.DotJournal.Models.JournalEntry *@
+@model Lumivate.DotJournal.Models.JournalEntry
 
 @{
     ViewData["Title"] = "Edit Journal Entry";
@@ -8,16 +8,15 @@
 <h1>Edit Journal Entry</h1>
 
 @* TODO-dotjournal step 5: Uncomment the edit form below and fill in the Razor parts where marked with TODO (inside HTML comments). *@
-@*
 <form asp-action="Edit" method="post">
     <input type="hidden" asp-for="Id" />
     <input type="hidden" asp-for="CreatedAt" />
-    <!-- TODO-dotjournal step 7: Add a hidden field for UserId when auth is added -->
-    <!-- <input type="hidden" asp-for="UserId" /> -->
+    @* TODO-dotjournal step 7: Add a hidden field for UserId when auth is added *@
+    <input type="hidden" asp-for="UserId" />
     <div class="mb-3">
-        <!-- TODO-dotjournal step 5: Add a label and input for Title -->
-        <!-- <label asp-for="Title" class="form-label"></label> -->
-        <!-- <input asp-for="Title" class="form-control" /> -->
+        @* TODO-dotjournal step 5: Add a label and input for Title *@
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" class="form-control" />
     </div>
     <div class="mb-3">
         <label asp-for="Content" class="form-label"></label>
@@ -36,8 +35,8 @@
             <option value="Grateful">Grateful</option>
         </select>
     </div>
-    <!-- TODO-dotjournal step 5: Add a submit button with text "Save Changes" -->
+    @* TODO-dotjournal step 5: Add a submit button with text "Save Changes" *@
+    <button type="submit" class="btn btn-primary">Save Changes</button>
 </form>
-*@
 
 <a asp-action="Index" class="btn btn-secondary mt-2">Back to Journal</a>
